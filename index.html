@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SAHI – Sahabat Alam Hijau Indonesia</title>
+<meta name="description" content="Yayasan Sahabat Alam Hijau Indonesia (SAHI) berkomitmen menjaga hutan lindung, ekosistem mangrove, serta mengawal penegakan hukum lingkungan yang adil dan transparan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#1f3d2b;
+  --green-2:#2f5b43;
+  --cream:#f6f4ee;
+  --paper:#ffffff;
+  --ink:#1b1f1c;
+  --muted:#5d655f;
+  --line:#d9d6cb;
+  --accent:#a8895a;
+  --serif:"Source Serif 4", Georgia, "Times New Roman", serif;
+  --sans:"Public Sans", "Helvetica Neue", Arial, sans-serif;
+  --r:3px;
+  --wrap:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{font-family:var(--sans);color:var(--ink);background:var(--cream);line-height:1.65;font-size:16px;-webkit-font-smoothing:antialiased}
+img,svg{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer}
+.wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding:0 28px}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.2;color:var(--green)}
+.eyebrow{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--accent)}
+.btn{display:inline-block;padding:12px 22px;border-radius:var(--r);font-weight:600;font-size:.95rem;border:1px solid transparent;transition:background .2s,color .2s,border-color .2s}
+.btn-light{background:var(--cream);color:var(--green)}
+.btn-light:hover{background:#fff}
+.btn-outline{border-color:var(--green);color:var(--green);background:transparent}
+.btn-outline:hover{background:var(--green);color:var(--cream)}
+
+/* NAVBAR */
+.nav{position:sticky;top:0;z-index:50;background:var(--cream);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
+.brand{display:flex;align-items:center;gap:14px}
+.brand svg{width:44px;height:44px;flex:none}
+.brand b{display:block;font-family:var(--serif);font-size:1.3rem;color:var(--green);line-height:1.1;letter-spacing:.04em}
+.brand span{display:block;font-size:.8rem;color:var(--muted);line-height:1.2}
+.menu{display:flex;gap:34px;list-style:none}
+.menu a{font-size:.95rem;font-weight:500;padding:6px 0;border-bottom:2px solid transparent;transition:border-color .2s,color .2s}
+.menu a:hover{color:var(--green-2);border-color:var(--accent)}
+.burger{display:none;background:none;border:1px solid var(--line);border-radius:var(--r);width:42px;height:42px;align-items:center;justify-content:center}
+.burger span,.burger span::before,.burger span::after{display:block;width:18px;height:2px;background:var(--green);position:relative;content:""}
+.burger span::before{position:absolute;top:-6px}
+.burger span::after{position:absolute;top:6px}
+
+/* HERO */
+.hero{position:relative;color:var(--cream);overflow:hidden;background:var(--green)}
+.hero-bg{position:absolute;inset:0}
+.hero-bg svg{width:100%;height:100%}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(18,40,28,.92) 0%,rgba(18,40,28,.78) 42%,rgba(18,40,28,.25) 100%)}
+.hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center;min-height:600px;padding-top:70px;padding-bottom:70px}
+.hero h1{color:var(--cream);font-size:clamp(2rem,4vw,3.2rem);font-weight:700;margin-bottom:22px}
+.hero p{max-width:520px;color:#e4e8df;margin-bottom:32px}
+.hero-cards{display:flex;flex-direction:column;gap:18px}
+.hcard{background:rgba(246,244,238,.96);color:var(--ink);padding:20px 22px;border-left:4px solid var(--accent);border-radius:2px;max-width:340px}
+.hcard h3{font-size:1.1rem;margin-bottom:4px}
+.hcard p{font-size:.88rem;color:var(--muted);margin:0;line-height:1.5}
+.hcard:nth-child(1){margin-left:70px}
+.hcard:nth-child(2){margin-left:0;max-width:360px}
+.hcard:nth-child(3){margin-left:110px}
+
+/* ABOUT */
+section{padding:96px 0}
+.about{background:var(--cream)}
+.center{text-align:center}
+.about .head{max-width:780px;margin:0 auto 52px}
+.about h2{font-size:clamp(1.7rem,3vw,2.4rem);margin:10px 0 18px}
+.about .head p{color:var(--muted)}
+.video{position:relative;max-width:980px;margin:0 auto 56px;aspect-ratio:16/9;background:var(--green);overflow:hidden;border-radius:var(--r);cursor:pointer}
+.video svg.poster{width:100%;height:100%}
+.video::after{content:"";position:absolute;inset:0;background:rgba(18,40,28,.35);transition:background .2s}
+.video:hover::after{background:rgba(18,40,28,.2)}
+.video .play{position:absolute;z-index:2;left:50%;top:50%;transform:translate(-50%,-50%);width:112px;height:76px;background:var(--cream);border-radius:var(--r);display:flex;align-items:center;justify-content:center}
+.video .play svg{width:30px;height:30px;fill:var(--green);margin-left:4px}
+.video .note{position:absolute;z-index:2;left:0;right:0;bottom:18px;text-align:center;color:var(--cream);font-size:.85rem;opacity:0;transition:opacity .2s}
+.video.noted .note{opacity:1}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:3}
+.vmv{max-width:980px;margin:0 auto;display:grid;gap:20px}
+.box{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:30px 34px}
+.box h3{font-size:1.25rem;margin-bottom:12px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+.box p{color:#343a36}
+.box ol{padding-left:20px;color:#343a36}
+.box li{margin-bottom:8px;padding-left:4px}
+.values{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:6px}
+.value{padding:10px 24px 10px 0}
+.value+.value{padding-left:24px;border-left:1px solid var(--line)}
+.value i{font-style:normal;font-family:var(--serif);color:var(--accent);font-size:1.5rem;font-weight:600;display:block;margin-bottom:6px}
+.value strong{display:block;color:var(--green);margin-bottom:6px;font-family:var(--serif);font-size:1.1rem}
+.value p{font-size:.92rem;color:var(--muted);line-height:1.55}
+
+/* ACTIONS */
+.actions{background:var(--paper);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.actions h2,.news h2{font-size:clamp(1.7rem,3vw,2.4rem)}
+.actions .top{margin-bottom:48px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px}
+.card .img{aspect-ratio:4/3;overflow:hidden;border-radius:var(--r);background:var(--green);margin-bottom:20px}
+.card .img svg{width:100%;height:100%;transition:transform .5s}
+.card:hover .img svg{transform:scale(1.04)}
+.card h3{font-size:1.3rem;margin-bottom:10px}
+.card p{color:var(--muted);font-size:.95rem}
+
+/* NEWS */
+.news{background:var(--cream)}
+.news .row{display:flex;justify-content:space-between;align-items:center;gap:20px;margin-bottom:44px}
+.ncard{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);display:flex;flex-direction:column;overflow:hidden;transition:border-color .2s}
+.ncard:hover{border-color:var(--green-2)}
+.ncard .img{aspect-ratio:16/10;background:var(--green);overflow:hidden}
+.ncard .img svg{width:100%;height:100%}
+.ncard .body{padding:22px 24px 24px;display:flex;flex-direction:column;flex:1}
+.meta{font-size:.78rem;color:var(--muted);margin-bottom:10px;display:flex;flex-wrap:wrap;gap:6px 12px}
+.meta b{color:var(--accent);text-transform:uppercase;letter-spacing:.1em;font-weight:600}
+.ncard h3{font-size:1.1rem;line-height:1.35;margin-bottom:10px}
+.ncard p{font-size:.9rem;color:var(--muted);margin-bottom:18px;flex:1}
+.ncard .go{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:.9rem;color:var(--green)}
+.ncard .go svg{width:22px;height:12px;transition:transform .2s}
+.ncard:hover .go svg{transform:translateX(5px)}
+.pager{display:flex;align-items:center;gap:18px;margin-top:40px}
+.pager button{background:none;border:0;color:var(--ink);padding:4px 6px;font-size:1rem;border-bottom:2px solid transparent}
+.pager button.on{border-color:var(--green);color:var(--green);font-weight:600}
+.pager button:disabled{opacity:.3;cursor:default}
+.pager svg{width:20px;height:12px}
+
+/* FOOTER */
+footer{background:var(--green);color:#d6dccf;padding:72px 0 0}
+.fgrid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:56px;padding-bottom:56px}
+footer .brand b{color:var(--cream)}
+footer .brand span{color:#b6c0b0}
+.fabout{margin-top:20px;font-size:.92rem;max-width:380px;color:#c4ccbd}
+footer h4{font-family:var(--serif);font-size:1.05rem;color:var(--cream);padding-bottom:10px;border-bottom:1px solid rgba(246,244,238,.28);margin-bottom:20px;font-weight:600}
+.flist{list-style:none;display:grid;gap:16px}
+.flist li{display:flex;gap:14px;align-items:flex-start;font-size:.92rem}
+.flist .ic{width:32px;height:32px;border:1px solid rgba(246,244,238,.35);border-radius:2px;display:flex;align-items:center;justify-content:center;flex:none}
+.flist .ic svg{width:16px;height:16px;stroke:var(--cream);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.flist a:hover{color:#fff;text-decoration:underline}
+.copy{border-top:1px solid rgba(246,244,238,.18);padding:22px 0;font-size:.82rem;color:#a9b4a2;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+
+/* RESPONSIVE */
+@media (max-width:960px){
+  .hero .wrap{grid-template-columns:1fr;min-height:0}
+  .hero::after{background:rgba(18,40,28,.82)}
+  .hcard:nth-child(n){margin-left:0;max-width:none}
+  .grid3{grid-template-columns:1fr 1fr}
+  .values{grid-template-columns:1fr 1fr;row-gap:22px}
+  .value:nth-child(3){padding-left:0;border-left:0}
+  .fgrid{grid-template-columns:1fr 1fr}
+  .fgrid>div:first-child{grid-column:1/-1}
+}
+@media (max-width:720px){
+  section{padding:68px 0}
+  .burger{display:flex}
+  .menu{position:absolute;top:72px;left:0;right:0;background:var(--cream);border-bottom:1px solid var(--line);flex-direction:column;gap:0;display:none;padding:8px 28px 16px}
+  .menu.open{display:flex}
+  .menu a{display:block;padding:12px 0;border-bottom:1px solid var(--line)}
+  .brand span{display:none}
+  .grid3{grid-template-columns:1fr}
+  .news .row{flex-direction:column;align-items:flex-start}
+  .values{grid-template-columns:1fr}
+  .value+.value{padding-left:0;border-left:0;border-top:1px solid var(--line);padding-top:18px}
+  .box{padding:24px 22px}
+  .fgrid{grid-template-columns:1fr;gap:40px}
+  .video .play{width:88px;height:60px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+
+<!-- Ilustrasi alam (SVG, tanpa file eksternal). Ganti dengan foto asli jika sudah ada. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#c7d8cb"/><stop offset="1" stop-color="#ece9d6"/>
+    </linearGradient>
+    <linearGradient id="skyd" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#b9cdb9"/><stop offset="1" stop-color="#efe3c6"/>
+    </linearGradient>
+  </defs>
+
+  <symbol id="mg" viewBox="0 0 200 260">
+    <g fill="#1d4630">
+      <ellipse cx="100" cy="70" rx="90" ry="55"/>
+      <ellipse cx="50" cy="98" rx="52" ry="36"/>
+      <ellipse cx="152" cy="98" rx="52" ry="36"/>
+    </g>
+    <path d="M95 120h10l5 50H90z" fill="#3b2f24"/>
+    <g fill="none" stroke="#3b2f24" stroke-width="5" stroke-linecap="round">
+      <path d="M100 150C70 190 50 220 40 260"/>
+      <path d="M100 150C86 200 80 230 78 260"/>
+      <path d="M100 150C114 200 120 230 124 260"/>
+      <path d="M100 150C130 190 150 220 162 260"/>
+    </g>
+  </symbol>
+
+  <symbol id="pine" viewBox="0 0 100 180">
+    <rect x="46" y="140" width="8" height="40" fill="#3b2f24"/>
+    <g fill="#1d4630">
+      <polygon points="50,6 86,70 14,70"/>
+      <polygon points="50,42 92,112 8,112"/>
+      <polygon points="50,82 98,150 2,150"/>
+    </g>
+  </symbol>
+
+  <symbol id="s-hero" viewBox="0 0 1600 700" preserveAspectRatio="xMidYMid slice">
+    <rect width="1600" height="700" fill="url(#sky)"/>
+    <circle cx="1260" cy="170" r="62" fill="#f1ebd2" opacity=".85"/>
+    <path d="M0 380Q200 300 420 360T820 340T1220 360T1600 330V700H0Z" fill="#9db39a"/>
+    <path d="M0 430Q260 360 520 420T1040 410T1600 400V700H0Z" fill="#6f8f78"/>
+    <rect y="470" width="1600" height="230" fill="#3f6a63"/>
+    <g fill="#fff" opacity=".12">
+      <rect x="80" y="500" width="260" height="3"/><rect x="520" y="530" width="340" height="3"/>
+      <rect x="980" y="505" width="300" height="3"/><rect x="1260" y="560" width="260" height="3"/>
+      <rect x="300" y="590" width="300" height="3"/><rect x="760" y="610" width="360" height="3"/>
+    </g>
+    <use href="#mg" x="30" y="260" width="300" height="390"/>
+    <use href="#mg" x="400" y="320" width="220" height="286"/>
+    <use href="#mg" x="740" y="250" width="300" height="390"/>
+    <use href="#mg" x="1110" y="300" width="250" height="325"/>
+    <use href="#mg" x="1370" y="230" width="300" height="390"/>
+    <path d="M0 655Q400 630 800 655T1600 650V700H0Z" fill="#1c3a2a"/>
+  </symbol>
+
+  <symbol id="s-forest" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+    <rect width="400" height="300" fill="url(#sky)"/>
+    <circle cx="310" cy="70" r="26" fill="#f1ebd2" opacity=".85"/>
+    <path d="M0 170Q80 115 170 160T330 140T400 160V300H0Z" fill="#9db39a"/>
+    <path d="M0 215Q100 160 210 205T400 190V300H0Z" fill="#6f8f78"/>
+    <rect y="250" width="400" height="50" fill="#2f5b43"/>
+    <use href="#pine" x="22" y="150" width="46" height="83"/>
+    <use href="#pine" x="84" y="168" width="38" height="68"/>
+    <use href="#pine" x="150" y="140" width="56" height="101"/>
+    <use href="#pine" x="228" y="164" width="40" height="72"/>
+    <use href="#pine" x="290" y="136" width="58" height="104"/>
+    <use href="#pine" x="354" y="170" width="36" height="65"/>
+  </symbol>
+
+  <symbol id="s-mangrove" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+    <rect width="400" height="300" fill="url(#sky)"/>
+    <path d="M0 150Q100 110 200 140T400 130V300H0Z" fill="#8fa98f"/>
+    <rect y="185" width="400" height="115" fill="#3f6a63"/>
+    <g fill="#fff" opacity=".14"><rect x="20" y="215" width="120" height="2"/><rect x="190" y="240" width="150" height="2"/><rect x="60" y="270" width="140" height="2"/></g>
+    <use href="#mg" x="10" y="90" width="130" height="169"/>
+    <use href="#mg" x="150" y="110" width="100" height="130"/>
+    <use href="#mg" x="250" y="70" width="150" height="195"/>
+  </symbol>
+
+  <symbol id="s-dawn" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
+    <rect width="400" height="300" fill="url(#skyd)"/>
+    <circle cx="200" cy="150" r="46" fill="#f4ecd0"/>
+    <path d="M0 175Q70 140 140 170T280 160T400 175V300H0Z" fill="#8fa98f"/>
+    <path d="M0 210Q110 170 220 205T400 195V300H0Z" fill="#5f8069"/>
+    <rect y="245" width="400" height="55" fill="#244a35"/>
+    <use href="#pine" x="40" y="165" width="34" height="61"/>
+    <use href="#pine" x="92" y="180" width="26" height="47"/>
+    <use href="#pine" x="300" y="160" width="36" height="65"/>
+    <use href="#pine" x="350" y="178" width="28" height="50"/>
+  </symbol>
+</svg>
+
+<!-- NAVBAR -->
+<header class="nav">
+  <div class="wrap">
+    <a href="#beranda" class="brand" aria-label="SAHI – Beranda">
+      <svg viewBox="0 0 44 44" aria-hidden="true"><circle cx="22" cy="22" r="22" fill="#1f3d2b"/><path d="M12 31c0-9 6-16 19-17-1 11-7 18-16 18M12 31c4-5 8-9 13-12" fill="none" stroke="#f6f4ee" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div><b>SAHI</b><span>Sahabat Alam Hijau Indonesia</span></div>
+    </a>
+    <button class="burger" aria-label="Buka menu" aria-expanded="false"><span></span></button>
+    <ul class="menu" id="menu">
+      <li><a href="#tentang">Tentang Kami</a></li>
+      <li><a href="#aksi">Aksi Kami</a></li>
+      <li><a href="#berita">Berita</a></li>
+      <li><a href="#kontak">Kontak</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="beranda">
+<!-- HERO -->
+<section class="hero" style="padding:0">
+  <div class="hero-bg" aria-hidden="true"><svg viewBox="0 0 1600 700" preserveAspectRatio="xMidYMid slice"><use href="#s-hero"/></svg></div>
+  <div class="wrap">
+    <div>
+      <h1>SAHI Menjaga Bumi, Melindungi Ekosistem Nusantara</h1>
+      <p>Yayasan Sahabat Alam Hijau Indonesia (SAHI) berkomitmen menjaga hutan lindung, ekosistem mangrove, serta mengawal penegakan hukum lingkungan yang adil dan transparan.</p>
+      <a href="#tentang" class="btn btn-light">Pelajari Tentang Kami</a>
+    </div>
+    <div class="hero-cards">
+      <div class="hcard"><h3>Hutan Lindung</h3><p>Mengawasi dan membela kawasan yang berfungsi sebagai penyangga kehidupan.</p></div>
+      <div class="hcard"><h3>Ekosistem Mangrove</h3><p>Menjaga sabuk hijau pesisir dari abrasi dan alih fungsi kawasan.</p></div>
+      <div class="hcard"><h3>Penegakan Hukum</h3><p>Mengawal proses hukum lingkungan agar berjalan adil dan transparan.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- TENTANG KAMI -->
+<section class="about" id="tentang">
+  <div class="wrap">
+    <div class="head center">
+      <span class="eyebrow">Tentang Kami</span>
+      <h2>Sahabat Alam Hijau Indonesia (SAHI)</h2>
+      <p>Kami adalah organisasi nirlaba independen yang bergerak di bidang konservasi lingkungan hidup, investigasi pelanggaran ekosistem, serta advokasi hukum untuk menjamin masa depan lingkungan yang lestari bagi generasi mendatang.</p>
+    </div>
+
+    <!-- Isi VIDEO_ID dengan ID video YouTube profil SAHI, mis. "dQw4w9WgXcQ" -->
+    <div class="video" id="video" role="button" tabindex="0" aria-label="Putar video profil SAHI">
+      <svg class="poster" viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#s-mangrove"/></svg>
+      <div class="play"><svg viewBox="0 0 24 24"><path d="M5 3l16 9-16 9z"/></svg></div>
+      <div class="note">Video profil SAHI akan segera tersedia.</div>
+    </div>
+
+    <div class="vmv">
+      <div class="box">
+        <h3>Visi</h3>
+        <p>Terwujudnya hutan lindung dan ekosistem mangrove Indonesia yang terjaga, serta penegakan hukum lingkungan yang adil dan transparan demi keberlanjutan hidup generasi mendatang.</p>
+      </div>
+      <div class="box">
+        <h3>Misi</h3>
+        <ol>
+          <li>Melindungi kawasan hutan lindung dan ekosistem mangrove dari perusakan dan alih fungsi yang melanggar hukum.</li>
+          <li>Menginvestigasi dan melaporkan dugaan pelanggaran lingkungan kepada aparat penegak hukum.</li>
+          <li>Mengawal proses hukum agar berjalan terbuka dan akuntabel, termasuk menuntut pemulihan kawasan yang rusak.</li>
+          <li>Mendorong keterbukaan informasi perizinan dan partisipasi publik dalam pengelolaan sumber daya alam.</li>
+        </ol>
+      </div>
+      <div class="box">
+        <h3>Nilai-nilai</h3>
+        <div class="values">
+          <div class="value"><i>01</i><strong>Independen</strong><p>Bekerja tanpa keberpihakan pada kepentingan korporasi maupun politik.</p></div>
+          <div class="value"><i>02</i><strong>Transparan</strong><p>Terbuka terhadap data, sumber, dan dasar setiap laporan yang kami sampaikan.</p></div>
+          <div class="value"><i>03</i><strong>Berbasis Data</strong><p>Setiap temuan didukung peta, citra satelit, dan dokumen resmi.</p></div>
+          <div class="value"><i>04</i><strong>Berkeadilan</strong><p>Mengutamakan kelestarian alam dan hak generasi yang akan datang.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AKSI KAMI -->
+<section class="actions" id="aksi">
+  <div class="wrap">
+    <div class="top center"><span class="eyebrow">Program</span><h2 style="margin-top:10px">Aksi Kami</h2></div>
+    <div class="grid3">
+      <article class="card">
+        <div class="img"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustrasi hutan lindung"><use href="#s-forest"/></svg></div>
+        <h3>Perlindungan Hutan Lindung</h3>
+        <p>Memantau kawasan hutan lindung, memetakan pelanggaran, dan mendorong penindakan terhadap penggunaan kawasan tanpa dasar hukum yang sah.</p>
+      </article>
+      <article class="card">
+        <div class="img"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustrasi ekosistem mangrove"><use href="#s-mangrove"/></svg></div>
+        <h3>Pelestarian Mangrove</h3>
+        <p>Menjaga sabuk hijau pesisir yang menahan abrasi dan menjadi rumah biota laut, serta menuntut pemulihan kawasan melalui reboisasi.</p>
+      </article>
+      <article class="card">
+        <div class="img"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustrasi advokasi hukum"><use href="#s-dawn"/></svg></div>
+        <h3>Advokasi &amp; Penegakan Hukum</h3>
+        <p>Menyampaikan laporan pengaduan masyarakat kepada Kejaksaan Agung dan KPK, serta mengawal tindak lanjutnya secara terbuka.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- BERITA KAMI -->
+<section class="news" id="berita">
+  <div class="wrap">
+    <div class="row">
+      <div><span class="eyebrow">Pemberitaan</span><h2 style="margin-top:10px">Berita Kami</h2></div>
+      <button class="btn btn-outline" id="toggleAll">Lihat Selengkapnya</button>
+    </div>
+    <div class="grid3" id="newsGrid"></div>
+    <nav class="pager" id="pager" aria-label="Halaman berita"></nav>
+  </div>
+</section>
+</main>
+
+<!-- FOOTER -->
+<footer id="kontak">
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <div class="brand">
+          <svg viewBox="0 0 44 44" aria-hidden="true" style="width:56px;height:56px"><circle cx="22" cy="22" r="21" fill="none" stroke="#f6f4ee" stroke-width="1.5"/><path d="M12 31c0-9 6-16 19-17-1 11-7 18-16 18M12 31c4-5 8-9 13-12" fill="none" stroke="#f6f4ee" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <div><b>SAHI</b><span>Sahabat Alam Hijau Indonesia</span></div>
+        </div>
+        <p class="fabout">Yayasan independen berfokus pada pelestarian kawasan konservasi, advokasi lingkungan, dan penegakan hukum demi bumi Indonesia yang lestari.</p>
+      </div>
+      <div>
+        <h4>Kontak Kami</h4>
+        <!-- GANTI dengan data kontak resmi SAHI -->
+        <ul class="flist">
+          <li><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></span><span>Jakarta, Indonesia<br>(alamat lengkap menyusul)</span></li>
+          <li><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 7l9 6 9-6"/></svg></span><a href="mailto:info@sahi.or.id">info@sahi.or.id</a></li>
+          <li><span class="ic"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"/></svg></span><a href="tel:+620000000000">+62 000 0000 0000</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Media Sosial</h4>
+        <!-- GANTI tautan dengan akun resmi SAHI -->
+        <ul class="flist">
+          <li><span class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4"/><circle cx="12" cy="12" r="3.6"/><circle cx="16.8" cy="7.2" r=".6"/></svg></span><a href="#">Instagram — @sahi.indonesia</a></li>
+          <li><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="3"/><path d="M10 9.5l5 2.5-5 2.5z"/></svg></span><a href="#">YouTube — SAHI Indonesia</a></li>
+          <li><span class="ic"><svg viewBox="0 0 24 24"><path d="M4 4l16 16M20 4L4 20"/></svg></span><a href="#">X — @sahi_indonesia</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="copy"><span>© 2026 Yayasan Sahabat Alam Hijau Indonesia (SAHI)</span><span>Menjaga bumi, melindungi ekosistem Nusantara.</span></div>
+  </div>
+</footer>
+
+<script>
+/* ===== Data berita (ringkasan pemberitaan media; klik untuk membaca sumber asli) ===== */
+const NEWS = [
+  {scene:'s-dawn', cat:'Konferensi Pers', src:'Akurat.co', date:'20 Okt 2026',
+   title:'SAHI pertanyakan dasar hukum penggunaan kawasan sebelum PPKH terbit',
+   text:'Dalam konferensi pers di Jakarta Selatan, SAHI meminta jawaban beserta dokumen resmi terkait penggunaan kawasan hutan lindung mangrove di Konawe Selatan.',
+   url:'https://www.akurat.co/hukum/900059/memanas-sahi-tantang-ifishdeco-buka-dokumen-ippkh-usai-bantah-tuduhan-perusakan-hutan-lindung'},
+  {scene:'s-forest', cat:'Tanggapan', src:'Poskota', date:'Okt 2026',
+   title:'Perusahaan sebut penggunaan kawasan dibatasi 0,25 hektare, SAHI minta dokumen dibuka',
+   text:'Pihak perusahaan menyatakan terbuka terhadap pengawasan dan mengklaim memiliki persetujuan penggunaan kawasan hutan. SAHI menegaskan tetap menunggu dokumen resminya.',
+   url:'https://poskota.co/hukum-kriminal/memanas-sahi-tantang-ifishdeco-tbk-buka-dokumen-ippkh-usai-bantah-tuduhan-perusakan-hutan-lindung/'},
+  {scene:'s-mangrove', cat:'Investigasi', src:'JawaPos', date:'Okt 2026',
+   title:'2.500 meter persegi mangrove di Konawe Selatan disebut berubah menjadi jalan hauling',
+   text:'SAHI memaparkan data peta kawasan hutan dan citra satelit 2026 sebagai dasar temuan hilangnya mangrove di Desa Wadonggo, Kecamatan Tinanggea.',
+   url:'https://www.jawapos.com/berita-daerah/2610190400/2500-meter-mangrove-di-konawe-selatan-jadi-jalan-hauling-nikel-sahi-pertanyakan-ppkh?page=all'},
+  {scene:'s-mangrove', cat:'Laporan Hukum', src:'JawaPos', date:'16 Okt 2026',
+   title:'SAHI laporkan dugaan perusakan hutan lindung mangrove ke Kejaksaan Agung',
+   text:'Laporan pengaduan masyarakat bernomor SAHI-DUMAS/01/16/10/2026 menyoroti dugaan pembukaan jalur hauling di kawasan hutan lindung mangrove Sulawesi Tenggara.',
+   url:'https://www.jawapos.com/berita-daerah/2610170378/mangrove-konawe-selatan-diduga-dibobol-sahi-lapor-ke-kejaksaan-agung?page=all'},
+  {scene:'s-dawn', cat:'Laporan Hukum', src:'Suara Karya', date:'Okt 2026',
+   title:'SAHI minta Kejaksaan Agung ambil tindakan tegas atas dugaan perusakan mangrove',
+   text:'SAHI menyoroti adanya papan peringatan dan segel dari Gakkum Kemenhut di lokasi, sementara aktivitas pengangkutan disebut masih berjalan.',
+   url:'https://www.suarakarya.id/hukum/26017774979/sahi-soroti-tindakan-perusakan-mangrove-di-konawe-selatan-minta-kejaksaan-agung-ambil-tindakan-tegas'},
+  {scene:'s-forest', cat:'Advokasi', src:'Suara Karya', date:'Okt 2026',
+   title:'SAHI berencana membawa persoalan mangrove Konawe Selatan ke KPK',
+   text:'SAHI menilai ada potensi kerugian negara dari alih fungsi hutan lindung mangrove dan meragukan keabsahan persetujuan penggunaan kawasan yang diklaim.',
+   url:'https://www.suarakarya.id/hukum/26017780497/sahi-bakal-adukan-pt-ifishdeco-tbkifsh-ke-kpk-diragukan-keabsahan-ppkh-miliknya-di-lokasi-hutan-lindung-mangrove'},
+  {scene:'s-mangrove', cat:'Pemberitaan', src:'Sinar Harapan', date:'Okt 2026',
+   title:'Dugaan pembobolan hutan lindung mangrove di Konawe Selatan dilaporkan ke Kejagung',
+   text:'Pelapor menilai temuan di lokasi sebagai indikasi ketidakpatuhan terhadap tindakan penegakan hukum negara di sektor pertambangan nikel.',
+   url:'https://www.sinarharapan.net/pt-ifishdeco-tbk-ifsh-diduga-bobol-hutan-lindung-mangrove-di-konawe-selatan/'},
+  {scene:'s-forest', cat:'Pemberitaan', src:'Poskota', date:'Okt 2026',
+   title:'Papan segel Gakkum berdiri di kawasan mangrove, jalur sepanjang ±150 meter dipersoalkan',
+   text:'Jalur yang menuju pelabuhan bongkar muat itu dipersoalkan SAHI karena berada di kawasan hutan lindung yang telah diberi papan larangan.',
+   url:'https://poskota.co/daerah/segel-negara-diabaikan-pt-ifishdeco-tbk-ifsh-diduga-bobol-hutan-lindung-mangrove-di-konawe-selatan/'},
+  {scene:'s-dawn', cat:'Pemberitaan', src:'Akurat.co', date:'Okt 2026',
+   title:'Segel negara diabaikan? SAHI soroti aktivitas di hutan lindung mangrove Wadonggo',
+   text:'Laporan tersebut menjadi bagian dari upaya SAHI mengawal penegakan hukum atas dugaan pelanggaran di kawasan hutan lindung Sulawesi Tenggara.',
+   url:'https://www.akurat.co/hukum/899440/segel-negara-diabaikan-pt-ifsh-diduga-bobol-hutan-lindung-mangrove-di-konawe-selatan'}
+];
+/* Tambah item baru ke array di atas; jumlah halaman menyesuaikan otomatis. */
+
+const PER = 3;
+let page = 1, showAll = false;
+const grid = document.getElementById('newsGrid');
+const pager = document.getElementById('pager');
+const arrow = '<svg viewBox="0 0 22 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6h19M15 1l5 5-5 5"/></svg>';
+const arrowL = '<svg viewBox="0 0 22 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 6H2M7 1L2 6l5 5"/></svg>';
+
+function card(n){
+  return `<article class="ncard">
+    <div class="img"><svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#${n.scene}"/></svg></div>
+    <div class="body">
+      <div class="meta"><b>${n.cat}</b><span>${n.src}</span><span>${n.date}</span></div>
+      <h3>${n.title}</h3>
+      <p>${n.text}</p>
+      <a class="go" href="${n.url}" target="_blank" rel="noopener noreferrer">Baca selengkapnya ${arrow}</a>
+    </div>
+  </article>`;
+}
+
+function render(){
+  const pages = Math.ceil(NEWS.length / PER);
+  const items = showAll ? NEWS : NEWS.slice((page-1)*PER, page*PER);
+  grid.innerHTML = items.map(card).join('');
+  if(showAll){ pager.style.display='none'; return; }
+  pager.style.display='flex';
+  let h = `<button data-p="prev" aria-label="Sebelumnya" ${page===1?'disabled':''}>${arrowL}</button>`;
+  for(let i=1;i<=pages;i++) h += `<button data-p="${i}" class="${i===page?'on':''}" ${i===page?'aria-current="page"':''}>${i}</button>`;
+  h += `<button data-p="next" aria-label="Berikutnya" ${page===pages?'disabled':''}>${arrow}</button>`;
+  pager.innerHTML = h;
+}
+pager.addEventListener('click', e=>{
+  const b = e.target.closest('button'); if(!b || b.disabled) return;
+  const pages = Math.ceil(NEWS.length / PER), p = b.dataset.p;
+  page = p==='prev' ? page-1 : p==='next' ? page+1 : +p;
+  page = Math.min(Math.max(page,1),pages);
+  render();
+  document.getElementById('berita').scrollIntoView({behavior:'smooth'});
+});
+document.getElementById('toggleAll').addEventListener('click', e=>{
+  showAll = !showAll;
+  e.target.textContent = showAll ? 'Tampilkan Ringkas' : 'Lihat Selengkapnya';
+  render();
+});
+render();
+
+/* ===== Video ===== */
+const VIDEO_ID = ""; // isi ID video YouTube
+const vid = document.getElementById('video');
+function playVideo(){
+  if(!VIDEO_ID){ vid.classList.add('noted'); return; }
+  vid.innerHTML = `<iframe src="https://www.youtube.com/embed/${VIDEO_ID}?autoplay=1" allow="autoplay; encrypted-media; fullscreen" allowfullscreen title="Video profil SAHI"></iframe>`;
+}
+vid.addEventListener('click', playVideo);
+vid.addEventListener('keydown', e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); playVideo(); }});
+
+/* ===== Menu mobile ===== */
+const burger = document.querySelector('.burger'), menu = document.getElementById('menu');
+burger.addEventListener('click', ()=>{
+  const o = menu.classList.toggle('open');
+  burger.setAttribute('aria-expanded', o);
+});
+menu.addEventListener('click', e=>{ if(e.target.tagName==='A'){ menu.classList.remove('open'); burger.setAttribute('aria-expanded', false); }});
+</script>
+</body>
+</html>
